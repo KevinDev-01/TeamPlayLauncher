@@ -484,12 +484,12 @@ function dlAsync(login = true){
 
     if(login) {
         if(ConfigManager.getSelectedAccount() == null){
-            loggerLanding.error('You must be logged into an account.')
+            loggerLanding.error('Vous devez être connecté pour lancer le jeu.')
             return
         }
     }
 
-    setLaunchDetails('Please wait..')
+    setLaunchDetails('Veuillez attendre...')
     toggleLaunchArea(true)
     setLaunchPercentage(0, 100)
 
@@ -557,7 +557,7 @@ function dlAsync(login = true){
                 case 'files':
                     setLaunchPercentage(100, 100)
                     loggerLaunchSuite.log('File validation complete.')
-                    setLaunchDetails('Downloading files..')
+                    setLaunchDetails('Téléchargements des fichiers')
                     break
             }
         } else if(m.context === 'progress'){
@@ -599,7 +599,7 @@ function dlAsync(login = true){
                         progressListener = null
                     }
 
-                    setLaunchDetails('Preparing to launch..')
+                    setLaunchDetails('Préparation du lancement...')
                     break
             }
         } else if(m.context === 'error'){
@@ -646,7 +646,7 @@ function dlAsync(login = true){
                 const authUser = ConfigManager.getSelectedAccount()
                 loggerLaunchSuite.log(`Sending selected account (${authUser.displayName}) to ProcessBuilder.`)
                 let pb = new ProcessBuilder(serv, versionData, forgeData, authUser, remote.app.getVersion())
-                setLaunchDetails('Launching game..')
+                setLaunchDetails('Lancement du jeu...')
 
                 // const SERVER_JOINED_REGEX = /\[.+\]: \[CHAT\] [a-zA-Z0-9_]{1,16} joined the game/
                 const SERVER_JOINED_REGEX = new RegExp(`\\[.+\\]: \\[CHAT\\] ${authUser.displayName} joined the game`)
@@ -654,7 +654,7 @@ function dlAsync(login = true){
                 const onLoadComplete = () => {
                     toggleLaunchArea(false)
                     if(hasRPC){
-                        DiscordWrapper.updateDetails('Loading game..')
+                        DiscordWrapper.updateDetails('Lancement du jeu...')
                     }
                     proc.stdout.on('data', gameStateChange)
                     proc.stdout.removeListener('data', tempListener)
@@ -703,7 +703,7 @@ function dlAsync(login = true){
                     proc.stdout.on('data', tempListener)
                     proc.stderr.on('data', gameErrorListener)
 
-                    setLaunchDetails('Done. Enjoy the server!')
+                    setLaunchDetails('Terminé !')
 
                     // Init Discord Hook
                     const distro = DistroManager.getDistribution()

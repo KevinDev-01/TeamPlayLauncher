@@ -455,7 +455,7 @@ function asyncSystemScan(mcVersion, launchAfter = true){
     })
 
     // Begin system Java scan.
-    setLaunchDetails('Checking system info..')
+    setLaunchDetails('Vérification des infos systèmes')
     sysAEx.send({task: 'execute', function: 'validateJava', argsArr: [ConfigManager.getDataDirectory()]})
 
 }
@@ -862,7 +862,7 @@ let newsLoadingListener = null
  */
 function setNewsLoading(val){
     if(val){
-        const nLStr = 'Checking for News'
+        const nLStr = 'Chargements des News...'
         let dotStr = '..'
         nELoadSpan.innerHTML = nLStr + dotStr
         newsLoadingListener = setInterval(() => {

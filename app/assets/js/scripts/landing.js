@@ -536,28 +536,28 @@ function dlAsync(login = true){
             switch(m.data){
                 case 'distribution':
                     setLaunchPercentage(20, 100)
-                    loggerLaunchSuite.log('Validated distibution index.')
-                    setLaunchDetails('Loading version information..')
+                    loggerLaunchSuite.log('Validation de la distribution')
+                    setLaunchDetails('Chargement de la version')
                     break
                 case 'version':
                     setLaunchPercentage(40, 100)
-                    loggerLaunchSuite.log('Version data loaded.')
-                    setLaunchDetails('Validating asset integrity..')
+                    loggerLaunchSuite.log('Version chargée')
+                    setLaunchDetails('Validation des assets')
                     break
                 case 'assets':
                     setLaunchPercentage(60, 100)
-                    loggerLaunchSuite.log('Asset Validation Complete')
-                    setLaunchDetails('Validating library integrity..')
+                    loggerLaunchSuite.log('Validation des assets terminée')
+                    setLaunchDetails('Validation des librairies')
                     break
                 case 'libraries':
                     setLaunchPercentage(80, 100)
-                    loggerLaunchSuite.log('Library validation complete.')
-                    setLaunchDetails('Validating miscellaneous file integrity..')
+                    loggerLaunchSuite.log('Validation des librairies terminée')
+                    setLaunchDetails('Validation des autres fichiers terminée')
                     break
                 case 'files':
                     setLaunchPercentage(100, 100)
-                    loggerLaunchSuite.log('File validation complete.')
-                    setLaunchDetails('Téléchargements des fichiers')
+                    loggerLaunchSuite.log('Validation des fichiers')
+                    setLaunchDetails('Téléchargement des fichiers')
                     break
             }
         } else if(m.context === 'progress'){
@@ -735,7 +735,7 @@ function dlAsync(login = true){
     // Begin Validations
 
     // Validate Forge files.
-    setLaunchDetails('Loading server information..')
+    setLaunchDetails('Chargement des informations serveurs')
 
     refreshDistributionIndex(true, (data) => {
         onDistroRefresh(data)

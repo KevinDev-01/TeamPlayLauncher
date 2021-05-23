@@ -337,11 +337,11 @@ function bindAuthAccountSelect() {
             for (let i = 0; i < selectBtns.length; i++) {
                 if (selectBtns[i].hasAttribute('selected')) {
                     selectBtns[i].removeAttribute('selected')
-                    selectBtns[i].innerHTML = 'Select Account'
+                    selectBtns[i].innerHTML = 'Sélectionner le compte'
                 }
             }
             val.setAttribute('selected', '')
-            val.innerHTML = 'Selected Account &#10004;'
+            val.innerHTML = 'Compte sélectionné &#10004;'
             setSelectedAccount(val.closest('.settingsAuthAccount').getAttribute('uuid'))
         }
     })
@@ -467,7 +467,7 @@ function populateAuthAccounts() {
             <div class="settingsAuthAccountRight">
                 <div class="settingsAuthAccountDetails">
                     <div class="settingsAuthAccountDetailPane">
-                        <div class="settingsAuthAccountDetailTitle">Username</div>
+                        <div class="settingsAuthAccountDetailTitle">Pseudo</div>
                         <div class="settingsAuthAccountDetailValue">${acc.displayName}</div>
                     </div>
                     <div class="settingsAuthAccountDetailPane">
@@ -476,9 +476,9 @@ function populateAuthAccounts() {
                     </div>
                 </div>
                 <div class="settingsAuthAccountActions">
-                    <button class="settingsAuthAccountSelect" ${selectedUUID === acc.uuid ? 'selected>Selected Account &#10004;' : '>Select Account'}</button>
+                    <button class="settingsAuthAccountSelect" ${selectedUUID === acc.uuid ? 'selected>Compte sélectionné &#10004;' : '>Select Account'}</button>
                     <div class="settingsAuthAccountWrapper">
-                        <button class="settingsAuthAccountLogOut">Log Out</button>
+                        <button class="settingsAuthAccountLogOut">Déconnexion</button>
                     </div>
                 </div>
             </div>

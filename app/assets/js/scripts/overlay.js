@@ -276,7 +276,7 @@ function populateServerListings(){
                     <div class="serverListingVersion">${serv.getMinecraftVersion()}</div>
                     <div class="serverListingRevision">${serv.getVersion()}</div>
                     ${serv.isMainServer() ? `<div class="serverListingStarWrapper">
-                        <svg id="Layer_1" viewBox="0 0 107.45 104.74" width="20px" height="20px">
+                        <svg id="Layer_1" viewBox="0 0 107.45 104.74" width="30px" height="30px">
                             <defs>
                                 <style>.cls-1{fill:#fff;}.cls-2{fill:none;stroke:#fff;stroke-miterlimit:10;}</style>
                             </defs>

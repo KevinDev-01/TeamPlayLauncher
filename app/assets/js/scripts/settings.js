@@ -337,11 +337,11 @@ function bindAuthAccountSelect() {
             for (let i = 0; i < selectBtns.length; i++) {
                 if (selectBtns[i].hasAttribute('selected')) {
                     selectBtns[i].removeAttribute('selected')
-                    selectBtns[i].innerHTML = 'Sélectionner le compte'
+                    selectBtns[i].innerHTML = 'Select Account'
                 }
             }
             val.setAttribute('selected', '')
-            val.innerHTML = 'Compte sélectionné &#10004;'
+            val.innerHTML = 'Selected Account &#10004;'
             setSelectedAccount(val.closest('.settingsAuthAccount').getAttribute('uuid'))
         }
     })
@@ -467,7 +467,7 @@ function populateAuthAccounts() {
             <div class="settingsAuthAccountRight">
                 <div class="settingsAuthAccountDetails">
                     <div class="settingsAuthAccountDetailPane">
-                        <div class="settingsAuthAccountDetailTitle">Pseudo</div>
+                        <div class="settingsAuthAccountDetailTitle">Username</div>
                         <div class="settingsAuthAccountDetailValue">${acc.displayName}</div>
                     </div>
                     <div class="settingsAuthAccountDetailPane">
@@ -476,9 +476,9 @@ function populateAuthAccounts() {
                     </div>
                 </div>
                 <div class="settingsAuthAccountActions">
-                    <button class="settingsAuthAccountSelect" ${selectedUUID === acc.uuid ? 'selected>Compte sélectionné &#10004;' : '>Select Account'}</button>
+                    <button class="settingsAuthAccountSelect" ${selectedUUID === acc.uuid ? 'selected>Selected Account &#10004;' : '>Select Account'}</button>
                     <div class="settingsAuthAccountWrapper">
-                        <button class="settingsAuthAccountLogOut">Déconnexion</button>
+                        <button class="settingsAuthAccountLogOut">Log Out</button>
                     </div>
                 </div>
             </div>
@@ -1317,16 +1317,16 @@ function populateSettingsUpdateInformation(data) {
                 shell.openExternal(data.darwindownload)
             })
         } else {
-            settingsUpdateButtonStatus('Téléchargement...', true)
+            settingsUpdateButtonStatus('Téléchargement en cours', true)
         }
     } else {
         settingsUpdateTitle.innerHTML = 'Vous utilisez la version la plus récente'
         settingsUpdateChangelogCont.style.display = 'none'
         populateVersionInformation(remote.app.getVersion(), settingsUpdateVersionValue, settingsUpdateVersionTitle, settingsUpdateVersionCheck)
-        settingsUpdateButtonStatus('Vérifier...', true, () => {
+        settingsUpdateButtonStatus('Vérifier si des mises à jour sont disponnibles', false, () => {
             if (!isDev) {
                 ipcRenderer.send('autoUpdateAction', 'checkForUpdate')
-                settingsUpdateButtonStatus('Recherche...', true)
+                settingsUpdateButtonStatus('Recherche des mises à jour...', true)
             }
         })
     }

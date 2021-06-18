@@ -1317,16 +1317,16 @@ function populateSettingsUpdateInformation(data) {
                 shell.openExternal(data.darwindownload)
             })
         } else {
-            settingsUpdateButtonStatus('Téléchargement en cours', true)
+            settingsUpdateButtonStatus('Téléchargement...', true)
         }
     } else {
         settingsUpdateTitle.innerHTML = 'Vous utilisez la version la plus récente'
         settingsUpdateChangelogCont.style.display = 'none'
         populateVersionInformation(remote.app.getVersion(), settingsUpdateVersionValue, settingsUpdateVersionTitle, settingsUpdateVersionCheck)
-        settingsUpdateButtonStatus('Vérifier si des mises à jour sont disponibles', true, () => {
+        settingsUpdateButtonStatus('Vérification...', true, () => {
             if (!isDev) {
                 ipcRenderer.send('autoUpdateAction', 'checkForUpdate')
-                settingsUpdateButtonStatus('Recherche des mises à jour...', true)
+                settingsUpdateButtonStatus('Recherche...', true)
             }
         })
     }

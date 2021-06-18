@@ -1215,11 +1215,11 @@ function isPrerelease(version) {
 function populateVersionInformation(version, valueElement, titleElement, checkElement) {
     valueElement.innerHTML = version
     if (isPrerelease(version)) {
-        titleElement.innerHTML = 'Pre-release'
+        titleElement.innerHTML = 'Version Actuelle'
         titleElement.style.color = '#ff886d'
         checkElement.style.background = '#ff886d'
     } else {
-        titleElement.innerHTML = 'Stable Release'
+        titleElement.innerHTML = 'Version Actuelle'
         titleElement.style.color = null
         checkElement.style.background = null
     }
@@ -1258,7 +1258,7 @@ function populateReleaseNotes() {
         },
         timeout: 2500
     }).catch(err => {
-        settingsAboutChangelogText.innerHTML = 'Failed to load release notes.'
+        settingsAboutChangelogText.innerHTML = 'Pas de mises à jour'
     })
 }
 

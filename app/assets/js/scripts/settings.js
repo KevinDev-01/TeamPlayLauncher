@@ -1323,7 +1323,7 @@ function populateSettingsUpdateInformation(data) {
         settingsUpdateTitle.innerHTML = 'Vous utilisez la version la plus récente'
         settingsUpdateChangelogCont.style.display = 'none'
         populateVersionInformation(remote.app.getVersion(), settingsUpdateVersionValue, settingsUpdateVersionTitle, settingsUpdateVersionCheck)
-        settingsUpdateButtonStatus('Vérification...', true, () => {
+        settingsUpdateButtonStatus('Vérifier...', true, () => {
             if (!isDev) {
                 ipcRenderer.send('autoUpdateAction', 'checkForUpdate')
                 settingsUpdateButtonStatus('Recherche...', true)
